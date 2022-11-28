@@ -53,7 +53,7 @@ app.use((error,req,res,next) => {
 mongoose
     .connect("mongodb+srv://anigma:anigma@cluster0.30vv9v0.mongodb.net/test",{ useNewUrlParser: true,useUnifiedTopology: true  })
     .then(() => {
-        app.listen(3005,() => {
+        app.listen(process.env.PORT || 5000,() => {
             console.log("Server is open at port 3005");
         })
     })
