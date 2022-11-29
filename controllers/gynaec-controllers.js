@@ -24,15 +24,15 @@ const postGynaec = async (req,res,next) => {
 const getGynaec = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Gynaec;
+    let gynaec;
     try{
-        Gynaec = await Gynaec.findById(id);
+        gynaec = await Gynaec.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Gynaec.toObject({getters:true}));
+    res.json(gynaec.toObject({getters:true}));
 }
 
 const patchGynaec = async (req,res,next) => {

@@ -24,15 +24,15 @@ const postNephro = async (req,res,next) => {
 const getNephro = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Nephro;
+    let nephro;
     try{
-        Nephro = await Nephro.findById(id);
+        nephro = await Nephro.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Nephro.toObject({getters:true}));
+    res.json(nephro.toObject({getters:true}));
 }
 
 const patchNephro = async (req,res,next) => {

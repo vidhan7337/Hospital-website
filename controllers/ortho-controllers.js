@@ -24,15 +24,15 @@ const postOrtho = async (req,res,next) => {
 const getOrtho = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Ortho;
+    let ortho;
     try{
-        Ortho = await Ortho.findById(id);
+        ortho = await Ortho.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Ortho.toObject({getters:true}));
+    res.json(ortho.toObject({getters:true}));
 }
 
 const patchOrtho = async (req,res,next) => {

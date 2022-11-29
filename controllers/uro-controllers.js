@@ -24,15 +24,15 @@ const postUro = async (req,res,next) => {
 const getUro = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Uro;
+    let uro;
     try{
-        Uro = await Uro.findById(id);
+        uro = await Uro.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Uro.toObject({getters:true}));
+    res.json(uro.toObject({getters:true}));
 }
 
 const patchUro = async (req,res,next) => {

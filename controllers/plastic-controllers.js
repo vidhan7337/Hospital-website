@@ -24,15 +24,15 @@ const postPlastic = async (req,res,next) => {
 const getPlastic = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Plastic;
+    let plastic;
     try{
-        Plastic = await Plastic.findById(id);
+        plastic = await Plastic.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Plastic.toObject({getters:true}));
+    res.json(plastic.toObject({getters:true}));
 }
 
 const patchPlastic = async (req,res,next) => {

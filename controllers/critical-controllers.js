@@ -24,15 +24,15 @@ const postCritical = async (req,res,next) => {
 const getCritical = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Critical;
+    let critical;
     try{
-        Critical = await Critical.findById(id);
+        critical = await Critical.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Critical.toObject({getters:true}));
+    res.json(critical.toObject({getters:true}));
 }
 
 const patchCritical = async (req,res,next) => {

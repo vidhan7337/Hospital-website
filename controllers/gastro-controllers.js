@@ -24,15 +24,15 @@ const postGastro = async (req,res,next) => {
 const getGastro = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Gastro;
+    let gastro;
     try{
-        Gastro = await Gastro.findById(id);
+        gastro = await Gastro.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Gastro.toObject({getters:true}));
+    res.json(gastro.toObject({getters:true}));
 }
 
 const patchGastro = async (req,res,next) => {

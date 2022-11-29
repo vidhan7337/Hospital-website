@@ -24,15 +24,15 @@ const postSpine = async (req,res,next) => {
 const getSpine = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Spine;
+    let spine;
     try{
-        Spine = await Spine.findById(id);
+        spine = await Spine.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Spine.toObject({getters:true}));
+    res.json(spine.toObject({getters:true}));
 }
 
 const patchSpine = async (req,res,next) => {

@@ -24,15 +24,15 @@ const postNeuro = async (req,res,next) => {
 const getNeuro = async (req,res,next) => {
 
     let id = req.params.id; 
-    let Neuro;
+    let neuro;
     try{
-        Neuro = await Neuro.findById(id);
+        neuro = await Neuro.findById(id);
     }catch(err){
         console.log(err);
         return next(new HttpError('Something went wrong!',500));
     }
 
-    res.json(Neuro.toObject({getters:true}));
+    res.json(neuro.toObject({getters:true}));
 }
 
 const patchNeuro = async (req,res,next) => {
