@@ -12,6 +12,16 @@ const departmentOverviewRoutes = require("./routes/departmentOverview-routes");
 const departmentRoutes = require("./routes/department-routes");
 const doctorRoutes = require("./routes/doctor-routes");
 const contactRoutes = require("./routes/contact-routes");
+const criticalRoutes = require("./routes/critical-routes");
+const gastroRoutes = require("./routes/gastro-routes");
+const gynaecRoutes = require("./routes/gynaec-routes");
+const nephroRoutes = require("./routes/nephro-routes");
+const neuroRoutes = require("./routes/neuro-routes");
+const orthoRoutes = require("./routes/ortho-routes");
+const plasticRoutes = require("./routes/plastic-routes");
+const spineRoutes = require("./routes/spine-routes");
+const uroRoutes = require("./routes/uro-routes");
+
 
 const HttpError = require("./util/http-error");
 
@@ -35,6 +45,15 @@ app.use('/api/departmentOverview', departmentOverviewRoutes);
 app.use('/api/department', departmentRoutes);
 app.use('/api/doctor', doctorRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/critical', criticalRoutes);
+app.use('/api/gastro', gastroRoutes);
+app.use('/api/gynaec', gynaecRoutes);
+app.use('/api/nephro', nephroRoutes);
+app.use('/api/neuro', neuroRoutes);
+app.use('/api/ortho', orthoRoutes);
+app.use('/api/plastic', plasticRoutes);
+app.use('/api/spine', spineRoutes);
+app.use('/api/uro', uroRoutes);
 
 app.use((req,res,next) => {
     const error = new HttpError('Could not find the route!',404);
@@ -53,7 +72,7 @@ app.use((error,req,res,next) => {
 mongoose
     .connect("mongodb+srv://anigma:anigma@cluster0.30vv9v0.mongodb.net/test",{ useNewUrlParser: true,useUnifiedTopology: true  })
     .then(() => {
-        app.listen(process.env.PORT || 5000,() => {
+        app.listen(3005,() => {
             console.log("Server is open at port 3005");
         })
     })
